@@ -4,7 +4,7 @@
 //Codigo para calcular frações(somar, subtrair, dividir, multiplicar)
 void obterfracoes (int *num1, int *num2, int *num3, int *num4)
 {
-    printf("Informe O numerador da primeira fração:\n");
+    printf("Informe o numerador da primeira fração:\n");
     scanf("%d", num1);
     printf("\nInforme o denominador da primeira fração:\n");
     scanf("%d", num2);
