@@ -1,70 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <locale.h>
 //Codigo para calcular frações(somar, subtrair, dividir, multiplicar)
-void obterfracoes (int *num1, int *num2, int *num3, int *num4)
-{
-    printf("Informe o numerador da primeira fração:\n");
-    scanf("%d", num1);
-    printf("\nInforme o denominador da primeira fração:\n");
-    scanf("%d", num2);
-    printf("\nInforme o numerador da segunda fração:\n");
-    scanf("%d", num3);
-    printf("\nInforme o denominador da segunda fração:\n");
-    scanf("%d", num4);
 
-    if(*num2 == 0 || *num4 == 0)//Caso o usuario escrever 0 no denominador
-    {
-        printf("\nNão é possível ter uma fração com denominador zero, pois a divisão por zero é indefinida. ");
-        exit(1);//Finaliza o programa retornando o numero 1 para o int main
-    }
-}
-//soma das frações
-void somarfra(int num1, int num2, int num3, int num4, int *num, int *den)
-{
-    *num = num1 * num4 + num3 * num2;
-    *den = num2 * num4;
-}
-//subtração das frações
-void subtrairfra(int num1, int num2, int num3, int num4, int *num, int *den)
-{
-    *num = num1 * num4 - num3 * num2;
-    *den = num2 * num4;
-}
-//multiplicação das frações
-void multiplicarfra(int num1, int num2, int num3, int num4, int *num, int *den)
-{
-    *num = num1 * num3;
-    *den = num2 * num4;
-}
-//divisão das frações
-void dividirfra(int num1, int num2, int num3, int num4, int *num, int *den)
-{
-    *num = num1 * num4;
-    *den = num2 * num3;
-}
 //mdc
-void mdc(int *num, int *den)
+int __gcd(int numA, int numB)
 {
-    int numA = *num;
-    int numB = *den;
-    int temp;
-    while (numB != 0)
+    if(numB == 0)
     {
-        temp = numB;
-        numB = numA % numB;
-        numA = temp;
+        return numA;
     }
-    *num /= numA;
-    *den /= numA;
+    return __gcd(numB, numA % numB);
 }
 int main()
 {
-    int numA, numB, numC, numD, numres, denres, opcao;
-    char resp, continuar;
+    int numA, denA, numB, denB, numres, denres, op, resp;
+    int mmc, num1, num2;
+    char fim;
 
     setlocale( LC_ALL, "portuguese");//Torna possivel utilizar acentos
-    do
+
+      while (1)//enquanto o usuario não selecionar 5 o código continua em loop
     {
         printf("1-Somar!\n");
         printf("2-Subtrair!\n");
@@ -72,36 +27,75 @@ int main()
         printf("4-Dividir!\n");
         printf("5-Encerrar!\n");
         printf("Qual calculo gostaria?\n");
-        scanf(" %c", &resp);
+        scanf("%d", &op);
 
-        opcao = resp - '0';
-
-        switch(opcao)
+         if (op == 5)
         {
-        case 1:
-            obterfracoes(&numA, &numB, &numC, &numD);
-            somarfra(numA, numB, numC, numD, &numres, &denres);
-            mdc(&numres, &denres);
-            printf("O resultado é: %d/%d\n", numres, denres);
+            printf("Encerrando o programa.\n");
             break;
-        case 2:
-            obterfracoes(&numA, &numB, &numC, &numD);
-            subtrairfra(numA, numB, numC, numD, &numres, &denres);
-            mdc(&numres, &denres);
-            printf("O resultado é: %d/%d\n", numres, denres);
+        }
+
+        printf("Informe O numerador da primeira fração:\n");
+        scanf("%d", &numA);
+        printf("\nInforme o denominador da primeira fração:\n");
+        scanf("%d", &denA);
+        printf("\nInforme o numerador da segunda fração:\n");
+        scanf("%d", &numB);
+        printf("\nInforme o denominador da segunda fração:\n");
+        scanf("%d", &denB);
+
+        switch(op)
+        {
+        case 1://soma das frações
+            mmc = (denA * denB) / __gcd(denA, denB);//calcula mmc
+            num1 = numA * (mmc / denA);
+            num2 = numB * (mmc / denB);
+            numres = num1 + num2;
+            int mdc = __gcd(numres, mmc);
+            numres /= mdc;
+            mmc /= mdc;
+            printf("O resultado das frações é: %d/%d\n", numres, mmc);
             break;
-        case 3:
-            obterfracoes(&numA, &numB, &numC, &numD);
-            multiplicarfra(numA, numB, numC, numD, &numres, &denres);
-            mdc(&numres, &denres);
-            printf("O resultado é: %d/%d\n", numres, denres);
+
+        case 2://subtração das frações
+            mmc = (denA * denB) / __gcd(denA, denB);//calcula mmc
+            num1 = numA * (mmc / denA);
+            num2 = numB * (mmc / denB);
+            numres = num1 - num2;
+            mdc = __gcd(numres, mmc);
+            numres /= mdc;
+            mmc /= mdc;
+            if (mmc < 0)
+            {
+                numres = -numres;
+                mmc = -mmc;
+            }
+            printf("O resultado das frações é: %d/%d\n", numres, mmc);
             break;
-        case 4:
-            obterfracoes(&numA, &numB, &numC, &numD);
-            dividirfra(numA, numB, numC, numD, &numres, &denres);
-            mdc(&numres, &denres);
-            printf("O resultado é: %d/%d\n", numres, denres);
+
+        case 3://multiplicação das frações
+            numres = numA * numB;
+            denres = denA * denB;
+            mdc = __gcd(numres, denres);
+            numres /= mdc;
+            denres /= mdc;
+            printf("O resultado das frações é: %d/%d\n", numres, denres);
             break;
+
+        case 4://divisão das frações
+            numres = numA * denB;
+            denres = denA * numB;
+            mdc = __gcd(numres, denres);
+            numres /= mdc;
+            denres /= mdc;
+            if (denres < 0)
+            {
+                numres = -numres;
+                denres = -denres;
+            }
+            printf("O resultado das frações é: %d/%d\n", numres, denres);
+            break;
+
         case 5:
             printf("Encerrando programa");
             exit(1);
@@ -109,18 +103,7 @@ int main()
             printf("Opção invalida\n");
             break;
         }
-
-        printf("Gostaria de tentar outro calculo? s/n\n");
-        {
-            scanf(" %c", &continuar);
-        }
-        if(continuar == 'n')
-        {
-            exit(1);
-        }
-
     }
-    while(continuar == 's');
 
-    return 0;
-}
+        return 0;
+    }
