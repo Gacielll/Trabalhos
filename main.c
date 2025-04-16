@@ -1,3 +1,4 @@
+//Gabriel Henrique Maciel
 #include <stdio.h>
 #include <locale.h>
 //Codigo para calcular frações(somar, subtrair, dividir, multiplicar)
