@@ -1,0 +1,212 @@
+Nome: Gabriel Henrique Maciel
+
+1. Qual é o tipo de retorno padrão da função main() em C ANSI?
+a) void
+b) char
+c) double
+d) int (x)
+e) float
+
+2. Qual é a função usada para alocar memória dinamicamente em C ANSI?
+a) new
+b) malloc() (x)
+c) allocate
+d) create
+e) alloc
+
+3. Como declarar um ponteiro para um inteiro em C?
+a) int ptr;
+b) *int ptr;
+c) int *ptr; (x)
+d) ptr int;
+e) int@ptr;
+
+4. Qual é o operador para acessar o valor apontado por um ponteiro?
+a) &
+b) * (x)
+c) ->
+d) .
+e) #
+
+5. Qual é a diretiva de pré-processador usada para incluir um arquivo de
+cabeçalho?
+a) #import
+b) #include (x)
+c) #define
+d) #header
+e) #add
+
+6. Qual é a função usada para liberar memória alocada dinamicamente?
+a) release()
+b) delete
+c) free() (x)
+d) unalloc()
+e) clear()
+
+7. Qual é o tamanho em bytes do tipo int no C ANSI (em sistemas 32-bit)?
+a) 1
+b) 2
+c) 4 (x)
+d) 8
+e) Depende do compilador
+
+8. Como declarar uma constante inteira com valor 10 em C?
+a) const int x = 10; (x)
+b) int const x = 10;
+c) constant x = 10;
+d) #define x 10
+e) final int x = 10;
+
+9. Qual é a função usada para imprimir um caractere na saída padrão?
+a) print()
+b) printf()
+c) putchar() (x)
+d) puts()
+e) write()
+
+10. Qual é o formato usado em printf para imprimir um float?
+a) %d
+b) %c
+c) %s
+d) %f (x)
+e) %lf
+
+11. O que NULL representa em C?
+a) O número 0.
+b) Um ponteiro nulo. (x)
+c) Uma string vazia.
+d) Um valor indefinido.
+e) O fim de um arquivo.
+
+12. Qual é a estrutura de controle usada para decisões múltiplas em C?
+a) if-else
+b) switch-case (x)
+c) for
+d) while
+e) do-while
+
+13. Qual é a diferença entre ++i e i++?
+a) Nenhuma, são equivalentes.
+b) ++i incrementa antes de usar; i++ incrementa depois. (x)
+c) ++i soma 2, i++ soma 1.
+d) ++i é inválido em C ANSI.
+e) i++ só funciona em loops.
+
+14. Qual é a forma correta de declarar um array de 5 inteiros?
+a) int array[5]; (x)
+b) array int[5];
+c) int[5] array;
+d) int array = [5];
+e) int array(5);
+
+15. Qual função lê uma string da entrada padrão?
+a) scanf()
+b) fgets() (x)
+c) getchar()
+d) read()
+e) input()
+
+16. Como declarar uma função que não retorna valor?
+a) void func(); (x)
+b) null func();
+c) none func();
+d) func() -> void;
+e) empty func();
+
+17. Qual é o valor de 5 / 2 em C?
+a) 2.5
+b) 2 (x)
+c) 3
+d) 2.0
+e) Erro
+
+18. Qual é o operador para comparar igualdade?
+a) =
+b) == (x)
+c) ===
+d) !=
+e) <>
+
+19. Qual é a palavra-chave para sair de um loop prematuramente?
+a) stop
+b) exit
+c) break (x)
+d) return
+e) continue
+
+20. Qual é a estrutura usada para agrupar variáveis de tipos diferentes?
+a) array
+b) struct (x)
+c) union
+d) class
+e) tuple
+
+21. Qual é a função para abrir um arquivo em C?
+a) open()
+b) fopen() (x)
+c) readfile()
+d) file_open()
+e) loadfile()
+
+22. Qual é o tipo de dado para representar um caractere em C?
+a) string
+b) char (x)
+c) byte
+d) letter
+e) chr
+
+23. O que sizeof(int) retorna?
+a) O valor do inteiro.
+b) O tamanho em bytes do tipo int. (x)
+c) O número de bits do inteiro.
+d) O endereço de memória.
+e) Um ponteiro para um inteiro.
+
+24. Qual é a função para comparar duas strings?
+a) strcmp() (x)
+b) compare()
+c) string_diff()
+d) strdiff()
+e) cmp()
+
+25. Como declarar um ponteiro para uma função que retorna int?
+a) int (*ptr)(); (x)
+b) int *ptr();
+c) ptr int();
+d) function int *ptr();
+e) int ptr*();
+
+26. Qual é o escopo de uma variável declarada dentro de um bloco {}?
+a) Global.
+b) Local ao bloco. (x)
+c) Permanente.
+d) Externo.
+e) Estático.
+
+27. Qual é a palavra-chave para definir um tipo personalizado?
+a) newtype
+b) typedef (x)
+c) type
+d) def
+e) alias
+
+28. Qual é o modificador para variáveis que não podem ser alteradas?
+a) static
+b) volatile
+c) const (x)
+d) fixed
+e) final
+
+29. Qual é a função para copiar uma string?
+a) strcpy() (x)
+b) copy()
+c) stringcpy()
+d) memcpy()
+e) dup()
+
+30. Qual é o cabeçalho que contém a definição de printf?
+a) <iostream>
+b) <console>
+c) <stdio.h> (x)
+d) <print>
+e) <output>
