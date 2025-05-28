@@ -1,0 +1,66 @@
+//Aluno: Gabriel Henrique Maciel
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define produtos 200
+#define clientes 50
+
+// Função para embaralhar os produtos para que eles não repitam
+void embaralhar(int embaralhar[], int tamanho) {
+    for (int i = tamanho - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        int temp = embaralhar[i];
+        embaralhar[i] = embaralhar[j];
+        embaralhar[j] = temp;
+    }
+}
+
+int main() {
+    int numProdutos, numClientes;
+    float precos[produtos];
+    int produtosDisponiveis[produtos];
+    int produtosComprados[clientes];
+    float totalVendas = 0;
+
+    srand(time(NULL)); // Inicia o gerador de números aleatórios
+
+    // Gera número aleatório de produtos e clientes
+    numProdutos = rand() % produtos + 1;     // 1 a 200
+    numClientes = rand() % clientes + 1;     // 1 a 50
+
+    // Gera preços aleatórios para os produtos
+    for (int i = 0; i < numProdutos; i++) {
+        precos[i] = 5 + (rand() % 9601) / 100.0; // De R$5,00 a R$100,00
+        produtosDisponiveis[i] = i;
+    }
+
+    // Embaralha os produtos
+    embaralhar(produtosDisponiveis, numProdutos);
+
+    // Atribui produtos embaralhados aos clientes
+    for (int i = 0; i < numClientes; i++) {
+        int idProduto = produtosDisponiveis[i % numProdutos];
+        produtosComprados[i] = idProduto;
+        totalVendas += precos[idProduto];
+    }
+
+    // Exibe o número total de produtos e clientes gerados
+    printf("===== RESUMO DA SIMULACAO =====\n");
+    printf("Total de produtos disponíveis: %d\n", numProdutos);
+    printf("Total de clientes atendidos:   %d\n", numClientes);
+
+    // Exibe a tabela de clientes e o produto comprado
+    printf("\n===== TABELA DE CLIENTES =====\n");
+    printf("Cliente\tProduto ID\tPreco (R$)\n");
+    printf("-------------------------------\n");
+    for (int i = 0; i < numClientes; i++) {
+        int idProduto = produtosComprados[i];
+        printf("%d\t%d\t\t%.2f\n", i, idProduto, precos[idProduto]);
+    }
+
+    // Exibe o valor total das vendas
+    printf("\nTotal em vendas: R$%.2f\n", totalVendas);
+
+    return 0;
+}
